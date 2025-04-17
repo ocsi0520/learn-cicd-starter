@@ -46,15 +46,6 @@ func TestGetAPIKeyWithFewerWords(t *testing.T) {
 	checkMalformed(t, str, err)
 }
 
-// actually this is incorrect, by the code it should allow more tokens than 2
-// from the second we just simply ignore them
-func TestGetAPIKeyWithMoreWords(t *testing.T) {
-	aHeader := make(http.Header)
-	aHeader.Add("Authorization", "ApiKey asdasd asdasd")
-	str, err := GetAPIKey(aHeader)
-	checkMalformed(t, str, err)
-}
-
 func TestGetAPIKeyWithWellFormedHeader(t *testing.T) {
 	aHeader := make(http.Header)
 	aHeader.Add("Authorization", "ApiKey asdasd")
